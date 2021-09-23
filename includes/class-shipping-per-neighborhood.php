@@ -28,8 +28,8 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
         $this->id = 'woo_shipping_per_neighborhood';
         $this->instance_id = absint( $instance_id );
-        $this->method_title = __('Shipping per Neighborhood for WooCommerce', WSN_TEXT_DOMAIN);
-        $this->method_description = __('Create your price list by neighborhood or zone.', WSN_TEXT_DOMAIN);
+        $this->method_title = __('Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce');
+        $this->method_description = __('Create your price list by neighborhood or zone.', 'shipping-per-neighborhood-for-woocommerce');
 
         $this->supports = array(
             'shipping-zones',
@@ -38,16 +38,16 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
         $this->instance_form_fields = array(
 			'wsn-enabled' => array(
-				'title' 		=> __( 'Enable/Disable', WSN_TEXT_DOMAIN ),
+				'title' 		=> __( 'Enable/Disable', 'shipping-per-neighborhood-for-woocommerce' ),
 				'type' 			=> 'checkbox',
-				'label' 		=> __( 'Enable this shipping method', WSN_TEXT_DOMAIN ),
+				'label' 		=> __( 'Enable this shipping method', 'shipping-per-neighborhood-for-woocommerce' ),
 				'default' 		=> 'yes',
 			),
 			'wsn-title' => array(
-				'title' 		=> __( 'Method Title', WSN_TEXT_DOMAIN ),
+				'title' 		=> __( 'Method Title', 'shipping-per-neighborhood-for-woocommerce' ),
 				'type' 			=> 'text',
-				'description' 	=> __( 'This title user sees during checkout.', WSN_TEXT_DOMAIN ),
-				'default'		=> __( 'Price per Neighborhood', WSN_TEXT_DOMAIN ),
+				'description' 	=> __( 'This title user sees during checkout.', 'shipping-per-neighborhood-for-woocommerce' ),
+				'default'		=> __( 'Price per Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ),
 				'desc_tip'		=> true
             ),
             'wsn_repeater_city' => array(
@@ -165,7 +165,7 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
     }
 
     /**
-     * Save global cities
+     * Save global options
      * 
      * Save global options for plugin.
      *

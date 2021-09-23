@@ -8,19 +8,9 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-$cities = get_option( 'wsn_global_cities' );
+$cities = WSN_Get_Fields::get_global_cities();
 $neighborhoods = get_option( 'wsn_global_neighborhoods' );
-$options = [];
-foreach( $cities as $k => $v ) {
-
-	if( is_array( $v ) ) {
-
-        foreach( $v as $tk => $tv ) {
-
-			$options[$tv][] = $neighborhoods[$k][$tk];
-		}
-	}
-}
+$options = WSN_Get_Fields::get_global_cities_and_neighborhoods();
 
 do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
@@ -82,7 +72,7 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
         ?>
         <p class="form-row form-row-wide" id="calc_shipping_city_field">
             <select class="neighborhood-select" name="calc_shipping_city" id="calc_shipping_city">
-                <option value=""><?php esc_html_e( 'Select City', WSN_TEXT_DOMAIN ); ?></option>
+                <option value=""><?php esc_html_e( 'Select City', 'shipping-per-neighborhood-for-woocommerce' ); ?></option>
                 <?php foreach( $cities as $c => $tb ) : ?>
                     <option value="<?php echo esc_attr( $tb ); ?>" <?php selected( $current_city, $tb, true ); ?>><?php esc_html_e( $tb ); ?></option>
                 <?php endforeach ?>
@@ -94,7 +84,7 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
         ?>
         <p class="shipping-per-neighborhood" id="calc-shipping-per-neighborhood">
             <select class="neighborhood-select" name="calc-shipping-neighborhood" id="calc-shipping-per-neighborhood__select">
-                <option value=""><?php esc_html_e( 'Select Neighborhood', WSN_TEXT_DOMAIN ); ?></option>
+                <option value=""><?php esc_html_e( 'Select Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ); ?></option>
                 <?php foreach( $options as $c => $b ) : ?>
                     <optgroup label="<?php echo esc_attr( $c ); ?>">
                         <?php if( is_array( $b ) ) :

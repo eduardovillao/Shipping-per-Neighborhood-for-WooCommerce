@@ -5,7 +5,7 @@
  * Description: Add support to shipping method by neighborhood or custom zones. Easy and flexible.
  * Author: EduardoVillao.me
  * Author URI: https://eduardovillao.me/
- * Version: 1.1
+ * Version: 1.2
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'WSN_PLUGIN_PATH', dirname(__FILE__) );
+define( 'WSN_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WSN_PLUGN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WSN_TEXT_DOMAIN', 'shipping-per-neighborhood-for-woocommerce' );
+define( 'WSN_VERSION', '1.2' );
 
 /**
  * Order on WhatsApp Class
@@ -26,15 +26,6 @@ define( 'WSN_TEXT_DOMAIN', 'shipping-per-neighborhood-for-woocommerce' );
  * @since 1.0
  */
 final class WSN_Init {
-
-	/**
-	 * Plugin Version
-	 *
-	 * @since 1.0
-	 *
-	 * @var string The plugin version.
-	 */
-	const WSN_VERSION = '1.1';
 
 	/**
 	 * Minimum WooCommerce Version
@@ -61,7 +52,7 @@ final class WSN_Init {
 	 *
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
-	const MINIMUM_WP_VERSION = '5.0';
+	const MINIMUM_WP_VERSION = '5.3';
 
 	/**
 	 * Instance
@@ -192,8 +183,8 @@ final class WSN_Init {
 	 */
 	public function add_admin_scripts() {
 
-		wp_register_script( 'wsn-admin-options-js', WSN_PLUGN_URL .'assets/js/admin-options.js', array(), self::WSN_VERSION, true );
-		wp_register_style( 'wsn-admin-options-css', WSN_PLUGN_URL .'assets/css/admin-options.css', array(), self::WSN_VERSION );
+		wp_register_script( 'wsn-admin-options-js', WSN_PLUGN_URL .'assets/js/admin-options.js', array(), WSN_VERSION, true );
+		wp_register_style( 'wsn-admin-options-css', WSN_PLUGN_URL .'assets/css/admin-options.css', array(), WSN_VERSION );
 
 		wp_enqueue_script( 'wsn-admin-options-js' );
 		wp_enqueue_style( 'wsn-admin-options-css' );
@@ -236,9 +227,9 @@ final class WSN_Init {
 			}
 
 			$message = sprintf(
-				esc_html__( '%1$s requires %2$s to be installed and activated.', WSN_TEXT_DOMAIN ),
-				'<strong>' . esc_html__( 'Shipping per Neighborhood for WooCommerce', WSN_TEXT_DOMAIN ) . '</strong>',
-				'<strong>' . esc_html__( 'WooCommerce', WSN_TEXT_DOMAIN ) . '</strong>'
+				esc_html__( '%1$s requires %2$s to be installed and activated.', 'shipping-per-neighborhood-for-woocommerce' ),
+				'<strong>' . esc_html__( 'Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce' ) . '</strong>',
+				'<strong>WooCommerce</strong>'
 			);
 
 			printf( '<div class="notice notice-error"><p>%1$s</p></div>', $message );
@@ -261,9 +252,9 @@ final class WSN_Init {
 		}
 
 		$message = sprintf(
-			esc_html__( '%1$s requires %2$s version %3$s or greater.', WSN_TEXT_DOMAIN ),
-			'<strong>' . esc_html__( 'Shipping per Neighborhood for WooCommerce', WSN_TEXT_DOMAIN ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', WSN_TEXT_DOMAIN ) . '</strong>',
+			esc_html__( '%1$s requires %2$s version %3$s or greater.', 'shipping-per-neighborhood-for-woocommerce' ),
+			'<strong>' . esc_html__( 'Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce' ) . '</strong>',
+			'<strong>PHP</strong>',
 			 self::MINIMUM_PHP_VERSION
 		);
 
@@ -286,9 +277,9 @@ final class WSN_Init {
 		}
 		
 		$message = sprintf(
-			esc_html__( '%1$s requires %2$s version %3$s or greater.', WSN_TEXT_DOMAIN ),
-			'<strong>' . esc_html__( 'Shipping per Neighborhood for WooCommerce', WSN_TEXT_DOMAIN ) . '</strong>',
-			'<strong>' . esc_html__( 'WordPress', WSN_TEXT_DOMAIN ) . '</strong>',
+			esc_html__( '%1$s requires %2$s version %3$s or greater.', 'shipping-per-neighborhood-for-woocommerce' ),
+			'<strong>' . esc_html__( 'Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce' ) . '</strong>',
+			'<strong>WordPress</strong>',
 			 self::MINIMUM_WP_VERSION
 		);
 

@@ -11,14 +11,14 @@ $repeater_price = $this->get_option( 'wsn_repeater_neighborhood_price' );
 if( !empty( $repeater_city ) && !empty( $repeater_neighborhood ) && !empty( $repeater_price ) ) {
 
     ?>
-    <h2><?php esc_html_e('Pricing table', WSN_TEXT_DOMAIN); ?></h2>
+    <h2><?php esc_html_e('Pricing table', 'shipping-per-neighborhood-for-woocommerce'); ?></h2>
     <table class="wp-list-table widefat fixed striped wsn-table">
         <thead>
             <tr>
-                <th><?php esc_html_e('City', WSN_TEXT_DOMAIN); ?></th>
-                <th><?php esc_html_e('Neigborhood', WSN_TEXT_DOMAIN); ?></th>
-                <th><?php esc_html_e('Price', WSN_TEXT_DOMAIN); ?></th>
-                <th class="wsn-table__header-action"><?php esc_html_e('Action', WSN_TEXT_DOMAIN); ?></th>
+                <th><?php esc_html_e('City', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th><?php esc_html_e('Neigborhood', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th><?php esc_html_e('Price', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th class="wsn-table__header-action"><?php esc_html_e('Action', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
             </tr>
         </thead>
         <tbody class="wsn-table__body">
@@ -43,25 +43,25 @@ if( !empty( $repeater_city ) && !empty( $repeater_neighborhood ) && !empty( $rep
                             data-index="<?php echo esc_html( $k ); ?>" 
                             value="<?php echo esc_html( $repeater_price[$k] ); ?>"> 
                     </td>
-                    <td class="wsn-table__action"><?php echo $this->svg; ?></td>
+                    <td class="wsn-table__action" onclick="wsnRemoveRow(event)"><?php echo $this->svg; ?></td>
                 </tr>
             <?php
             endforeach; ?>
         </tbody>
     </table>
 
-    <a class="button button-secondary wsn-table__add"> <?php esc_html_e('Add option', WSN_TEXT_DOMAIN); ?> </a>
+    <a class="button button-secondary wsn-table__add" onclick="wsnNewRow(event)"> <?php esc_html_e('Add option', 'shipping-per-neighborhood-for-woocommerce'); ?> </a>
     <?php
 } else {
     ?>
-    <h2><?php esc_html_e('Pricing table', WSN_TEXT_DOMAIN); ?></h2>
+    <h2><?php esc_html_e('Pricing table', 'shipping-per-neighborhood-for-woocommerce'); ?></h2>
     <table class="wp-list-table widefat fixed striped wsn-table">
         <thead>
             <tr>
-                <th><?php esc_html_e('City', WSN_TEXT_DOMAIN); ?></th>
-                <th><?php esc_html_e('Neigborhood', WSN_TEXT_DOMAIN); ?></th>
-                <th><?php esc_html_e('Price', WSN_TEXT_DOMAIN); ?></th>
-                <th class="wsn-table__header-action"><?php esc_html_e('Action', WSN_TEXT_DOMAIN); ?></th>
+                <th><?php esc_html_e('City', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th><?php esc_html_e('Neigborhood', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th><?php esc_html_e('Price', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th class="wsn-table__header-action"><?php esc_html_e('Action', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
             </tr>
         </thead>
         <tbody class="wsn-table__body">
@@ -84,11 +84,11 @@ if( !empty( $repeater_city ) && !empty( $repeater_neighborhood ) && !empty( $rep
                         data-index="0" 
                         value=""> 
                 </td>
-                <td class="wsn-table__action"><?php echo $this->svg; ?></td>
+                <td class="wsn-table__action" onclick="wsnRemoveRow(event)"><?php echo $this->svg; ?></td>
             </tr>
         </tbody>
     </table>
 
-    <a class="button button-secondary wsn-table__add"> <?php esc_html_e('Add option', WSN_TEXT_DOMAIN); ?> </a>
+    <a class="button button-secondary wsn-table__add" onclick="wsnNewRow(event)"> <?php esc_html_e('Add option', 'shipping-per-neighborhood-for-woocommerce'); ?> </a>
     <?php
 }

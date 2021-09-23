@@ -126,7 +126,7 @@ class WSN_Shipping_Extras {
         }
 
         $fields['billing_neighborhood'] = array(
-            'label' => __( 'Neighborhood', WSN_TEXT_DOMAIN ),
+            'label' => __( 'Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ),
             'data-control' => 'optiongroup',
             'type' => 'select',
             'required' => true,
@@ -142,7 +142,7 @@ class WSN_Shipping_Extras {
         }
 
         $fields['billing_city'] = array(
-            'label' => __( 'City', WSN_TEXT_DOMAIN ),
+            'label' => __( 'City', 'shipping-per-neighborhood-for-woocommerce' ),
             'type' => 'select',
             'required' => true,
             'class' => array( 'form-row-wide', 'address-field' ),
@@ -152,7 +152,7 @@ class WSN_Shipping_Extras {
             'return' => false,
             'clear' => true,
             'priority' => 70,
-            'options' => [ '' => __( 'Select City', WSN_TEXT_DOMAIN ) ] + WSN_Get_Fields::get_global_cities(),
+            'options' => [ '' => __( 'Select City', 'shipping-per-neighborhood-for-woocommerce' ) ] + WSN_Get_Fields::get_global_cities(),
         );
 
         return $fields;
@@ -176,7 +176,7 @@ class WSN_Shipping_Extras {
         }
 
         $fields['shipping_neighborhood'] = array(
-            'label' => __( 'Shippping Neighborhood', WSN_TEXT_DOMAIN ),
+            'label' => __( 'Shippping Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ),
             'data-control' => 'optiongroup',
             'type' => 'select',
             'required' => true,
@@ -192,7 +192,7 @@ class WSN_Shipping_Extras {
         }
         
         $fields['shipping_city'] = array(
-            'label' => __( 'Shipping City', WSN_TEXT_DOMAIN ),
+            'label' => __( 'Shipping City', 'shipping-per-neighborhood-for-woocommerce' ),
             'type' => 'select',
             'required' => true,
             'class' => array( 'form-row-wide', 'address-field' ),
@@ -202,7 +202,7 @@ class WSN_Shipping_Extras {
             'return' => false,
             'clear' => true,
             'priority' => 70,
-            'options' => [ '' => __( 'Select City', WSN_TEXT_DOMAIN ) ] + WSN_Get_Fields::get_global_cities(),
+            'options' => [ '' => __( 'Select City', 'shipping-per-neighborhood-for-woocommerce' ) ] + WSN_Get_Fields::get_global_cities(),
         );
 
         return $fields;
@@ -221,7 +221,7 @@ class WSN_Shipping_Extras {
         if ( isset( $args['data-control'] ) && $args['data-control'] == 'optiongroup' ) {
             
             $options = '';
-            $options .= '<option value="">'.__( 'Select Neighborhood', WSN_TEXT_DOMAIN ).'</option>';
+            $options .= '<option value="">'.__( 'Select Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ).'</option>';
 
             foreach( WSN_Get_Fields::get_global_cities_and_neighborhoods() as $group => $option ) {
                 $options .= '<optgroup label="'.esc_attr( $group ).'">';

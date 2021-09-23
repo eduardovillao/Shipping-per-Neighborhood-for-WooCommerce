@@ -32,6 +32,34 @@ class WSN_Manage_Essential_Fields {
         add_filter( 'woocommerce_customer_meta_fields', [ $this, 'customer_meta_fields' ], 10, 1 );
         add_filter( 'woocommerce_user_column_billing_address', [ $this, 'user_column_billing_address' ], 1, 2 );
         add_filter( 'woocommerce_user_column_shipping_address', [ $this, 'user_column_shipping_address' ], 1, 2 );
+
+        // update option when shipping method changed
+        add_action( 'woocommerce_shipping_zone_method_deleted', [ $this, 'update_shipping_options' ], 10, 3 );
+    }
+
+    /**
+     * Update shipping databse option
+     * 
+     * Update option when shipping method is updated.
+     * 
+     * @since 1.2
+     * 
+     * @return void
+     */
+    public function update_shipping_options( $instance_id, $method_id, $zone_id ) {
+
+        $cities = get_option( 'wsn_global_cities' );
+        $neighborhoods = get_option( 'wsn_global_neighborhoods' );
+
+        if( ! isset( $cities[$instance_id] ) || ! isset( $cities[$instance_id] ) ) {
+            return;
+        }
+
+        unset( $cities[$instance_id] );
+        unset( $neighborhoods[$instance_id] );
+
+        update_option( 'wsn_global_cities', $cities );
+        update_option( 'wsn_global_neighborhoods', $neighborhoods );
     }
 
     /**
@@ -74,7 +102,7 @@ class WSN_Manage_Essential_Fields {
         if ( ! isset( $data['neighborhood'] ) ) {
             
             $data['neighborhood'] = array(
-                'label' => __( 'Neighborhood', WSN_TEXT_DOMAIN ),
+                'label' => __( 'Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ),
                 'show'  => false,
             );
         }
@@ -99,7 +127,7 @@ class WSN_Manage_Essential_Fields {
         if ( ! isset( $data['neighborhood'] ) ) {
             
             $data['neighborhood'] = array(
-                'label' => __( 'Neighborhood', WSN_TEXT_DOMAIN ),
+                'label' => __( 'Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ),
                 'show'  => false,
             );
         }
@@ -191,7 +219,7 @@ class WSN_Manage_Essential_Fields {
         if( ! array_key_exists( 'billing_neighborhood', $fields['billing']['fields'] ) ) {
     
             $fields['billing']['fields']['billing_neighborhood'] = array(
-                'label'       => __( 'Neighborhood', WSN_TEXT_DOMAIN ),
+                'label'       => __( 'Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ),
                 'description' => '',
             );
         }
@@ -199,7 +227,7 @@ class WSN_Manage_Essential_Fields {
         if( ! array_key_exists( 'shipping_neighborhood', $fields['shipping']['fields'] ) ) {
     
             $fields['shipping']['fields']['shipping_neighborhood'] = array(
-                'label'       => __( 'Neighborhood', WSN_TEXT_DOMAIN ),
+                'label'       => __( 'Neighborhood', 'shipping-per-neighborhood-for-woocommerce' ),
                 'description' => '',
             );
         }
