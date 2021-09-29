@@ -4,6 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+if( !class_exists( 'WC_Shipping_Method' ) ) {
+    return;
+}
+
 class WSN_Shipping_Method extends WC_Shipping_Method {
 
     /**

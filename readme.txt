@@ -4,7 +4,7 @@ Donate link: https://eduardovillao.me/
 Tags: woocommerce, shipping, shipping method, shipping neighborhood, shipping brazil, entrega por bairro
 Requires at least: 5.0
 Tested up to: 5.7
-Stable tag: 1.2
+Stable tag: 1.2.1
 Requires PHP: 7.0
 License: GPLv2License 
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,6 +46,11 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 1. Shipping admin options.
 
 == Changelog ==
+
+== 1.2.1 ==
+
+* Fix: Error when plugin is activated without the woocommerce installed.
+* Fix: Error when shipping method is not configured.
 
 = 1.2 =
 

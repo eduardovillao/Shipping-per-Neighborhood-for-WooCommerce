@@ -120,6 +120,10 @@ class WSN_Shipping_Extras {
 	 */
 	public function checkout_billing_neighborhood_fields( $fields ) {
 
+        if( !WSN_Get_Fields::get_global_cities() ) {
+            return $fields;
+        }
+
         if ( isset( $fields['billing_neighborhood'] ) ) {
 
             unset( $fields['billing_neighborhood'] );
@@ -169,6 +173,10 @@ class WSN_Shipping_Extras {
 	 * @return array
 	 */
 	public function checkout_shipping_neighborhood_fields( $fields ) {
+
+        if( !WSN_Get_Fields::get_global_cities() ) {
+            return $fields;
+        }
 
         if ( isset( $fields['shipping_neighborhood'] ) ) {
             
