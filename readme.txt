@@ -4,7 +4,7 @@ Donate link: https://eduardovillao.me/
 Tags: woocommerce, shipping, shipping method, shipping neighborhood, shipping brazil, entrega por bairro
 Requires at least: 5.0
 Tested up to: 5.7
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires PHP: 7.0
 License: GPLv2License 
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,22 +47,21 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 
 == Changelog ==
 
-== 1.2.1 ==
+= 1.2.2=
+* Fix: error in cart template when shipping method is empty.
 
-* Fix: Error when plugin is activated without the woocommerce installed.
-* Fix: Error when shipping method is not configured.
+= 1.2.1 =
+* Fix: error when plugin is activated without the woocommerce installed.
+* Fix: error when shipping method is not configured.
 
 = 1.2 =
-
 * New: neighborhood options are displayed by alphabetical order.
 * Fix: improved JS admin file to solve some bugs.
 * Fix: update neighborhood options when shipping method are removed.
 * Tweak: compatibility with WooCommerce and WordPress (5.8).
 
 = 1.1 =
-
 * Tweak: compatibility with new version of WooCommerce.
 
 = 1.0 =
-
 * Initial release.

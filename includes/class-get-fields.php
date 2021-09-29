@@ -20,12 +20,13 @@ class WSN_Get_Fields {
     public static function get_global_cities() {
 
         $cities = get_option( 'wsn_global_cities' );
-        
+
         if( empty( $cities ) ) {
             return;
         }
 
         $cities = self::clean_shipping_options( $cities );
+        $list_cities = [];
         foreach( $cities as $k => $v ) {
 
             if( is_array( $v ) ) {
