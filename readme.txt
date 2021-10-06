@@ -1,10 +1,10 @@
 === Shipping per Neighborhood for WooCommerce ===
 Contributors: EVCODE
 Donate link: https://eduardovillao.me/
-Tags: woocommerce, shipping, shipping method, shipping neighborhood, shipping brazil, entrega por bairro
-Requires at least: 5.0
-Tested up to: 5.7
-Stable tag: 1.2.2
+Tags: woocommerce, shipping, shipping method, shipping neighborhood
+Requires at least: 5.3
+Tested up to: 5.8
+Stable tag: 1.2.3
 Requires PHP: 7.0
 License: GPLv2License 
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,7 +47,11 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 
 == Changelog ==
 
-= 1.2.2=
+= 1.2.3 =
+* Fix: string error to translate to pt-BR.
+* Fix: string typo.
+
+= 1.2.2 =
 * Fix: error in cart template when shipping method is empty.
 
 = 1.2.1 =

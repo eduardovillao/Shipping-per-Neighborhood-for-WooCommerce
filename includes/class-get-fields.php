@@ -138,10 +138,11 @@ class WSN_Get_Fields {
         foreach( $zones as $id => $method ) {
 
             $methods_by_zone = array_column( $method['shipping_methods'], 'method_title', 'instance_id' );
+            $plugin_method = __( 'Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce' );
 
-            if( in_array( 'Shipping per Neighborhood for WooCommerce', $methods_by_zone ) ) {
+            if( in_array( $plugin_method, $methods_by_zone ) ) {
 
-                $current_instances[] = array_search( 'Shipping per Neighborhood for WooCommerce', $methods_by_zone );
+                $current_instances[] = array_search( $plugin_method, $methods_by_zone );
             }
         }
 

@@ -16,7 +16,7 @@ if( !empty( $repeater_city ) && !empty( $repeater_neighborhood ) && !empty( $rep
         <thead>
             <tr>
                 <th><?php esc_html_e('City', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
-                <th><?php esc_html_e('Neigborhood', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th><?php esc_html_e('Neighborhood', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
                 <th><?php esc_html_e('Price', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
                 <th class="wsn-table__header-action"><?php esc_html_e('Action', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
             </tr>
@@ -59,7 +59,7 @@ if( !empty( $repeater_city ) && !empty( $repeater_neighborhood ) && !empty( $rep
         <thead>
             <tr>
                 <th><?php esc_html_e('City', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
-                <th><?php esc_html_e('Neigborhood', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
+                <th><?php esc_html_e('Neighborhood', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
                 <th><?php esc_html_e('Price', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
                 <th class="wsn-table__header-action"><?php esc_html_e('Action', 'shipping-per-neighborhood-for-woocommerce'); ?></th>
             </tr>

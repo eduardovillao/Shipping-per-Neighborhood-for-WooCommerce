@@ -32,8 +32,8 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
         $this->id = 'woo_shipping_per_neighborhood';
         $this->instance_id = absint( $instance_id );
-        $this->method_title = __('Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce');
-        $this->method_description = __('Create your price list by neighborhood or zone.', 'shipping-per-neighborhood-for-woocommerce');
+        $this->method_title = __( 'Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce' );
+        $this->method_description = __( 'Create your price list by neighborhood or zone.', 'shipping-per-neighborhood-for-woocommerce' );
 
         $this->supports = array(
             'shipping-zones',
