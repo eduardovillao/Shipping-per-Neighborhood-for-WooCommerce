@@ -5,7 +5,7 @@
  * Description: Add support to shipping method by neighborhood or custom zones. Easy and flexible.
  * Author: EduardoVillao.me
  * Author URI: https://eduardovillao.me/
- * Version: 1.2.3
+ * Version: 1.2.4
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'WSN_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WSN_PLUGN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WSN_VERSION', '1.2.3' );
+define( 'WSN_VERSION', '1.2.4' );
 
 /**
  * Order on WhatsApp Class
@@ -52,7 +52,7 @@ final class WSN_Init {
 	 *
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
-	const MINIMUM_WP_VERSION = '5.3';
+	const MINIMUM_WP_VERSION = '5.4';
 
 	/**
 	 * Instance
