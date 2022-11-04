@@ -5,7 +5,7 @@
  * Description: Add support to shipping method by neighborhood or custom zones. Easy and flexible.
  * Author: EduardoVillao.me
  * Author URI: https://eduardovillao.me/
- * Version: 1.2.4
+ * Version: 1.2.5
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'WSN_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WSN_PLUGN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WSN_VERSION', '1.2.4' );
+define( 'WSN_VERSION', '1.2.5' );
 
 /**
  * Order on WhatsApp Class
