@@ -5,7 +5,7 @@
  * Description: Add support to shipping method by neighborhood or custom zones. Easy and flexible.
  * Author: EduardoVillao.me
  * Author URI: https://eduardovillao.me/
- * Version: 1.2.5
+ * Version: 1.2.6
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'WSN_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WSN_PLUGN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WSN_VERSION', '1.2.5' );
+define( 'WSN_VERSION', '1.2.6' );
 
 /**
  * Order on WhatsApp Class
@@ -90,7 +90,7 @@ final class WSN_Init {
 	 * Constructor
 	 *
 	 * Private method for prevent instance outsite the class.
-	 * 
+	 *
 	 * @since 1.0
 	 *
 	 * @access private
@@ -111,7 +111,7 @@ final class WSN_Init {
 
 		// Init plugin
 		add_action( 'plugins_loaded', [ $this, 'init' ] );
-		
+
 		// Check if woo is activated
 		add_action( 'admin_notices', [ $this, 'check_woo_activated' ] );
 	}
@@ -137,10 +137,10 @@ final class WSN_Init {
 
 			include_once WSN_PLUGIN_PATH .'/includes/class-manage-essential-fields.php';
 		}
-        
+
         // Add shipping method
 		add_filter( 'woocommerce_shipping_methods', [ $this, 'add_shipping_method' ] );
-		
+
 		// Enqueue admin scripts
 		add_action( 'admin_enqueue_scripts', [ $this, 'add_admin_scripts' ] );
 
@@ -156,7 +156,7 @@ final class WSN_Init {
         // 4 Desativar código postal
         //add_filter ('woocommerce_shipping_calculator_enable_postcode', '__return_false');
     }
-    
+
     /**
 	 * Add Shipping Method
 	 *
@@ -167,11 +167,11 @@ final class WSN_Init {
 	 * @access public
 	 */
     public function add_shipping_method( $methods ) {
-        
+
         $methods['woo_shipping_per_neighborhood'] = 'WSN_Shipping_Method';
         return $methods;
 	}
-	
+
 	/**
 	 * Admin Scritps
 	 *
@@ -192,11 +192,11 @@ final class WSN_Init {
 
 	/**
      * Register option
-     * 
+     *
      * Register global options for plugin.
      *
      * @since 1.0
-     * 
+     *
      * @access public
      * @return void
      */
@@ -221,7 +221,7 @@ final class WSN_Init {
 	public function check_woo_activated() {
 
 		if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			
+
 			if ( isset( $_GET['activate'] ) ) {
 				unset( $_GET['activate'] );
 			}
@@ -275,7 +275,7 @@ final class WSN_Init {
 		if ( isset( $_GET['activate'] ) ) {
 			unset( $_GET['activate'] );
 		}
-		
+
 		$message = sprintf(
 			esc_html__( '%1$s requires %2$s version %3$s or greater.', 'shipping-per-neighborhood-for-woocommerce' ),
 			'<strong>' . esc_html__( 'Shipping per Neighborhood for WooCommerce', 'shipping-per-neighborhood-for-woocommerce' ) . '</strong>',

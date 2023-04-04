@@ -3,10 +3,10 @@ Contributors: EVCODE
 Donate link: https://eduardovillao.me/
 Tags: woocommerce, shipping, shipping method, shipping neighborhood
 Requires at least: 5.4
-Tested up to: 6.1
-Stable tag: 1.2.5
+Tested up to: 6.2
+Stable tag: 1.2.6
 Requires PHP: 7.0
-License: GPLv2License 
+License: GPLv2License
 URI:https://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin add shipping method for manage deliveries by neighborhoods. You can add a table with all cities, neighborhoods and prices for each.
@@ -46,6 +46,9 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 1. Shipping admin options.
 
 == Changelog ==
+
+= 1.2.6 =
+* Changed: compatibility with WordPress 6.2.
 
 = 1.2.5 =
 * Changed: compatibility with WordPress 6.1.
