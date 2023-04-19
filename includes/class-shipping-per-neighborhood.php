@@ -14,7 +14,7 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
      * SVG to table
      *
      * @since 1.0
-     * 
+     *
      * @access protected
      * @return string
      */
@@ -24,7 +24,7 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
      * Constructor for your shipping class
      *
      * @since 1.0
-     * 
+     *
      * @access public
      * @return void
      */
@@ -76,7 +76,7 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
         $this->enabled = $this->get_option( 'wsn-enabled' );
         $this->title = $this->get_option( 'wsn-title' );
-        
+
         add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
     }
 
@@ -120,9 +120,9 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
     /**
      * Validate City
-     * 
+     *
      * Validate city after $_POST
-     * 
+     *
      * @since 1.0
      *
      * @access public
@@ -137,11 +137,11 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
     /**
      * Validate Neighborhood
-     * 
+     *
      * Validate neighborhood after $_POST
      *
      * @since 1.0
-     * 
+     *
      * @access public
      * @param mixed $key, $value
      * @return array
@@ -154,11 +154,11 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
     /**
      * Validate Price
-     * 
+     *
      * Validate price after $_POST
      *
      * @since 1.0
-     * 
+     *
      * @access public
      * @param mixed $key, $value
      * @return array
@@ -170,11 +170,11 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
     /**
      * Save global options
-     * 
+     *
      * Save global options for plugin.
      *
      * @since 1.0
-     * 
+     *
      * @access public
      * @param mixed $field_value, type
      * @return void
@@ -199,11 +199,11 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
     /**
      * Get neighborhoods
-     * 
+     *
      * Get neighborhood options.
      *
      * @since 1.0
-     * 
+     *
      * @access public
      * @return array
      */
@@ -228,31 +228,32 @@ class WSN_Shipping_Method extends WC_Shipping_Method {
 
     /**
      * Calculate Shipping
-     * 
+     *
      * calculate_shipping function.
      *
      * @since 1.0
-     * 
+     *
      * @access public
      * @param mixed $package
      * @return void
      */
     public function calculate_shipping( $package = array() ) {
-        
-        // Check if have neighborhood on $package
         if( empty( $package['destination']['neighborhood'] ) ) {
             return;
         }
 
         $city = $package['destination']['city'];
         $neighborhood = $package['destination']['neighborhood'];
+		if ( empty( $city ) || empty( $neighborhood ) ) {
+			return;
+		}
 
-        // get values from admin options
         $shipping_zones = $this->get_neighborhoods();
-        
-        // define cost if neighborhood existe in admin options
-        if( array_key_exists( $neighborhood, $shipping_zones[ $city ] ) ) {
+		if ( ! is_array( $shipping_zones ) || empty( $shipping_zones ) ) {
+			return;
+		}
 
+        if ( array_key_exists( $neighborhood, $shipping_zones[ $city ] ) ) {
             $this->add_rate( array(
                 'id' => $this->id . $this->instance_id,
                 'label' => $neighborhood,

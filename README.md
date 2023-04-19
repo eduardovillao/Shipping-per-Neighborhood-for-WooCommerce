@@ -20,6 +20,9 @@ This plugin add shipping method for manage deliveries by neighborhoods. You can 
 
 ## Changelog
 ```
+= 1.2.7 =
+* Fix: PHP error when some options is empty/not valid.
+
 = 1.2.6 =
 * Changed: compatibility with WordPress 6.2.
 
