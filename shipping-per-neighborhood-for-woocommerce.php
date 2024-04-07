@@ -5,18 +5,18 @@
  * Description: Add support to shipping method by neighborhood or custom zones. Easy and flexible.
  * Author: EduardoVillao.me
  * Author URI: https://eduardovillao.me/
- * Version: 1.2.7
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Version: 1.2.8
+ * License: GPL-3.0+
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	exit;
 }
 
 define( 'WSN_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WSN_PLUGN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WSN_VERSION', '1.2.7' );
+define( 'WSN_VERSION', '1.2.8' );
 
 /**
  * Order on WhatsApp Class
@@ -52,7 +52,7 @@ final class WSN_Init {
 	 *
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
-	const MINIMUM_WP_VERSION = '5.4';
+	const MINIMUM_WP_VERSION = '5.5';
 
 	/**
 	 * Instance
@@ -96,23 +96,17 @@ final class WSN_Init {
 	 * @access private
 	 */
 	private function __construct() {
-
-		// Check required configs (PHP and WP version)
 		if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
 			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_php_version' ] );
 			return;
 		}
 
-		// Check for required WP version
 		if ( version_compare( $GLOBALS['wp_version'], self::MINIMUM_WP_VERSION, '<' ) ) {
 			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_wp_version' ] );
 			return;
         }
 
-		// Init plugin
 		add_action( 'plugins_loaded', [ $this, 'init' ] );
-
-		// Check if woo is activated
 		add_action( 'admin_notices', [ $this, 'check_woo_activated' ] );
 	}
 
@@ -126,25 +120,16 @@ final class WSN_Init {
 	 * @access public
 	 */
 	public function init() {
-
-		// Include required class
 		include_once WSN_PLUGIN_PATH .'/includes/class-shipping-per-neighborhood.php';
 		include_once WSN_PLUGIN_PATH .'/includes/class-get-fields.php';
 		include_once WSN_PLUGIN_PATH .'/includes/class-shipping-extras.php';
 
-		// include if woocommerce-extra-checkout-fields-for-brazil its not installed
 		if ( ! class_exists( 'Extra_Checkout_Fields_For_Brazil' ) ) {
-
 			include_once WSN_PLUGIN_PATH .'/includes/class-manage-essential-fields.php';
 		}
 
-        // Add shipping method
 		add_filter( 'woocommerce_shipping_methods', [ $this, 'add_shipping_method' ] );
-
-		// Enqueue admin scripts
 		add_action( 'admin_enqueue_scripts', [ $this, 'add_admin_scripts' ] );
-
-		// Register global option
 		add_action( 'admin_init', [ $this, 'register_global_option' ] );
 
         // 1 Disable country
@@ -167,7 +152,6 @@ final class WSN_Init {
 	 * @access public
 	 */
     public function add_shipping_method( $methods ) {
-
         $methods['woo_shipping_per_neighborhood'] = 'WSN_Shipping_Method';
         return $methods;
 	}
@@ -182,7 +166,6 @@ final class WSN_Init {
 	 * @access public
 	 */
 	public function add_admin_scripts() {
-
 		wp_register_script( 'wsn-admin-options-js', WSN_PLUGN_URL .'assets/js/admin-options.js', array(), WSN_VERSION, true );
 		wp_register_style( 'wsn-admin-options-css', WSN_PLUGN_URL .'assets/css/admin-options.css', array(), WSN_VERSION );
 
